@@ -1,0 +1,22 @@
+Sort an array according to absolute difference with given value
+Given an array of n distinct elements and a number x, arrange array elements according to the absolute difference with x, i. e., element having minimum difference comes first and so on.
+Note : If two or more elements are at equal distance arrange them in same sequence as in the given array.
+
+Examples :
+
+Input : arr[] : x = 7, arr[] = {10, 5, 3, 9, 2}
+Output : arr[] = {5, 9, 10, 3, 2}
+
+#My way
+
+x = 7
+li = [10, 5, 3, 9, 2]
+li1 =[]
+for i in li:
+    li1.append(abs(x - i))
+
+li2 = list(zip(li,li1))
+z = dict(sorted(li2,key=lambda i:i[1]))
+print(list(z.keys()))
+
+#
