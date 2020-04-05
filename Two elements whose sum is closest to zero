@@ -1,0 +1,22 @@
+Two elements whose sum is closest to zero
+Question: An Array of integers is given, both +ve and -ve. You need to find the two elements such that their sum is closest to zero.
+
+For the below array, program should print -80 and 85.
+
+# My way
+x = [1, 60, -10, 70, -80, 85]
+i = 0
+j = len(x) - 1
+temp = 0
+p, q = 0, 0
+while i < j:
+    z = x[i] + x[j]
+    z = abs(z)
+    if temp == 0:
+        temp = z
+    elif z < temp:
+        temp = z
+        if i == j - 1:
+            p, q = x[i], x[j]
+    i += 1
+print(temp, p, q)
