@@ -1,0 +1,67 @@
+Shortest Un-ordered Subarray
+An array is given of n length, and problem is that we have to find the length of shortest unordered {neither increasing nor decreasing} sub array in given array.
+
+Examples:
+
+Input : n = 5
+        7 9 10 8 11
+Output : 3
+Explanation : 9 10 8 unordered sub array.
+
+Input : n = 5
+       1 2 3 4 5
+Output : 0 
+Explanation :  Array is in increasing order.
+# My Way
+x = [7 ,9, 10, 8, 11]
+i =0
+j =1
+inc = False
+while j < len(x):
+    if x[i] < x[j] and not inc:
+        i+=1
+        j+=1
+        inc =False
+    elif x[i] > x[j]:
+        i += 1
+        j += 1
+        inc = True
+    else:
+        print(x[i-2],x[i-1],x[i])
+        break
+# Another way
+
+def increasing(a, n): 
+  
+    for i in range(0, n - 1):  
+        if (a[i] >= a[i + 1]): 
+            return False
+              
+    return True
+  
+# Bool function for checking an array  
+# elements are in decreasing 
+def decreasing(a, n): 
+  
+    for i in range(0, n - 1):  
+        if (a[i] < a[i + 1]): 
+            return False
+              
+    return True
+  
+def shortestUnsorted(a, n): 
+  
+    # increasing and decreasing are two functions. 
+    # if function return True value then print 
+    # 0 otherwise 3. 
+    if (increasing(a, n) == True or
+        decreasing(a, n) == True): 
+        return 0
+    else: 
+        return 3
+  
+# Driver code 
+ar = [7, 9, 10, 8, 11]  
+n = len(ar)  
+print(shortestUnsorted(ar, n)) 
+  
