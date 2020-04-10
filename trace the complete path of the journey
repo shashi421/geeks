@@ -1,0 +1,25 @@
+def trace_path(my_dict):  # A Map object
+    my_keys = my_dict.keys()
+    my_values = my_dict.values()
+    result = []
+    value = ''
+    for key in my_keys:
+        while len(result) <= len(my_dict):
+            if key not in my_values:
+                result.append([key,my_dict[key]])
+                value = my_dict[key]
+            if value:
+                result.append([value,my_dict[value]])
+                value = my_dict[value]
+                break
+            else:
+                break
+    return result
+
+
+trace_path({
+  "NewYork": "Chicago",
+  "Boston": "Texas",
+  "Missouri": "NewYork",
+  "Texas": "Missouri"
+})
