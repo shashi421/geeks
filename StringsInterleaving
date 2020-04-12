@@ -1,0 +1,27 @@
+Input: m="abd", n="cef", p="abcdef"
+Output: true
+Explanation: 'p' contains all the letters from 'm' and 'n' and preserves their order too. 
+
+m="abcdef"
+n="mnop"
+p="mnaobcdepf"
+
+
+def test(m, p):
+    i = 0
+    j = len(m)
+    k = 0
+    h = 0
+    while i < j and k < len(p):
+        if m[i] == p[k]:
+            i += 1
+            h += 1
+        k += 1
+    if h == len(m):
+        return True
+
+
+if test(m, p) and test(n, p):
+    print(True)
+else:
+    print(False)
